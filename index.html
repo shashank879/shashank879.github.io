@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shashank Sharma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: normal;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header .affiliation {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: #2980b9;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: normal;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .about {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            text-align: justify;
+            color: #444;
+        }
+
+        .research-interests {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .interests-list {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .publication {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .publication-venue {
+            color: #2980b9;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .publication-authors {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .news {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #2980b9;
+            margin-bottom: 30px;
+        }
+
+        .news-item {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .news-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .news-date {
+            color: #666;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .cv-link {
+            display: inline-block;
+            background: #2980b9;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .cv-link:hover {
+            background: #21618c;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info a {
+                margin: 0 8px;
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Shashank Sharma</h1>
+        <div class="affiliation">Ph.D. Candidate, Computer Science<br>University of Bath</div>
+        <div class="contact-info">
+            <a href="mailto:shashank.879@gmail.com">Email</a>
+            <a href="https://scholar.google.co.uk/citations?user=VLtC0icAAAAJ&hl=en">Google Scholar</a>
+            <a href="https://github.com/shashank879">GitHub</a>
+            <a href="https://www.linkedin.com/in/shashank879">LinkedIn</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="about">
+            I am a Ph.D. candidate in Computer Science at the University of Bath, working with Dr. Vinay Namboodiri and Dr. Janina Hoffmann. My research focuses on developing automated goal-oriented reinforcement learning agents that can learn skills, plan hierarchically, and discover goals autonomously.
+            
+            <br><br>
+            
+            Prior to my Ph.D., I was a Pre-Doc Researcher at Google, where I developed semi-supervised learning methods for satellite image segmentation. I have also worked extensively in natural language processing, achieving top rankings on the Stanford SQuAD leaderboards.
+        </div>
+    </div>
+
+    <div class="news section">
+        <h2>News</h2>
+        <div class="news-item">
+            <span class="news-date">[2024]</span> Our paper "DHP: Discrete Hierarchical Planning for Hierarchical Reinforcement Learning Agents" submitted for review.
+        </div>
+        <div class="news-item">
+            <span class="news-date">[2023]</span> Paper on "Multi-Resolution Skill Discovery for Hierarchical Reinforcement Learning" accepted at NeurIPS'23 GCRL workshop.
+        </div>
+        <div class="news-item">
+            <span class="news-date">[2021]</span> Started Ph.D. at University of Bath.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Research Interests</h2>
+        <div class="research-interests">
+            My research lies at the intersection of machine learning and artificial intelligence, with a particular focus on:
+            <div class="interests-list">
+                • Hierarchical Reinforcement Learning<br>
+                • Goal-Oriented AI Systems<br>
+                • Skill Discovery and Planning<br>
+                • Computer Vision and Remote Sensing<br>
+                • Semi-Supervised Learning
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Selected Publications</h2>
+        
+        <div class="publication">
+            <div class="publication-title">Multi-Resolution Skill Discovery for Hierarchical Reinforcement Learning</div>
+            <div class="publication-venue">NeurIPS'23 Goal-Conditioned Reinforcement Learning Workshop</div>
+            <div class="publication-authors">Shashank Sharma, Vinay Namboodiri, Janina Hoffmann</div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-title">Evaluating Self and Semi-Supervised Methods for Remote Sensing Segmentation Tasks</div>
+            <div class="publication-venue">Remote Sensing Applications, 2021</div>
+            <div class="publication-authors">Chirag Patel, Shashank Sharma, Valerie J. Pasquarella, Varun Gulshan</div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-title">No Modes Left Behind: Capturing the Data Distribution Effectively Using GANs</div>
+            <div class="publication-venue">AAAI Conference on Artificial Intelligence, 2018 (Oral)</div>
+            <div class="publication-authors">Shashank Sharma, Vinay P. Namboodiri</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Experience</h2>
+        <div class="about">
+            <strong>Google</strong> (2020-2022)<br>
+            Pre-Doc Researcher, Computer Vision Team<br>
+            <em>Research on semi-supervised learning for satellite image segmentation</em>
+            
+            <br><br>
+            
+            <strong>Active.ai</strong> (2017-2019)<br>
+            AI Researcher, NLP/NLG Division<br>
+            <em>Developed conversational AI systems for financial services</em>
+            
+            <br><br>
+            
+            <strong>IIT Kanpur</strong> (2016-2017)<br>
+            Computer Vision Researcher<br>
+            <em>Research on Generative Adversarial Networks with Dr. Vinay Namboodiri</em>
+        </div>
+        
+        <a href="#" class="cv-link">Download Full CV</a>
+    </div>
+</body>
+</html>
