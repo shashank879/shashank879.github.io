@@ -1,0 +1,36 @@
+# Shashank Sharma - Personal Academic Website
+
+This repository contains the source code for my personal academic website, hosted at [https://shashank879.github.io](https://shashank879.github.io).
+
+## About
+
+I am a Ph.D. candidate in Computer Science at the University of Bath, working on automated goal-oriented reinforcement learning agents. This website showcases my research, publications, and professional background.
+
+## Website Structure
+
+- `index.html` - Main homepage with research overview and publications
+- Additional pages and resources may be added over time
+
+## Local Development
+
+To run this website locally:
+
+1. Clone this repository
+2. Open `index.html` in your web browser
+3. Or serve it using a simple HTTP server:
+   ```bash
+   python -m http.server 8000
+   ```
+   Then visit `http://localhost:8000`
+
+## Updates
+
+The website is automatically updated whenever changes are pushed to the main branch, thanks to GitHub Pages.
+
+## Contact
+
+For any questions about the website or research inquiries, please contact me at shashank.879@gmail.com
+
+---
+
+*Last updated: September 2025*
