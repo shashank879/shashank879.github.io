@@ -114,6 +114,30 @@
             font-size: 0.95rem;
         }
 
+        .publication-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .publication-image {
+            flex-shrink: 0;
+            width: 200px;
+            height: 150px;
+        }
+
+        .publication-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
 
 
         .cv-link {
@@ -135,15 +159,24 @@
             body {
                 padding: 20px 15px;
             }
-            
+
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .contact-info a {
                 margin: 0 8px;
                 display: inline-block;
                 margin-bottom: 5px;
+            }
+
+            .publication {
+                flex-direction: column;
+            }
+
+            .publication-image {
+                width: 100%;
+                height: 200px;
             }
         }
     </style>
@@ -151,12 +184,13 @@
 <body>
     <div class="header">
         <h1>Shashank Sharma</h1>
-        <div class="affiliation">Ph.D. Candidate, Computer Science<br>University of Bath</div>
+        <div class="affiliation">Ph.D. Student, Computer Science<br>University of Bath</div>
         <div class="contact-info">
             <a href="mailto:shashank.879@gmail.com">Email</a>
             <a href="https://scholar.google.co.uk/citations?user=VLtC0icAAAAJ&hl=en">Google Scholar</a>
             <a href="https://github.com/shashank879">GitHub</a>
             <a href="https://www.linkedin.com/in/shashank879">LinkedIn</a>
+            <a href="https://docs.google.com/document/d/1i67ydm_hyxtp1MQNdLEtnAbBeULZKCPIOJUO0GEGCyA/edit?usp=sharing">CV</a>
         </div>
     </div>
 
@@ -170,57 +204,94 @@
         </div>
     </div>
 
-<!--     <div class="news section">
-        <h2>News</h2>
-        <div class="news-item">
-            <span class="news-date">[2024]</span> Our paper "DHP: Discrete Hierarchical Planning for Hierarchical Reinforcement Learning Agents" submitted for review.
-        </div>
-        <div class="news-item">
-            <span class="news-date">[2023]</span> Paper on "Multi-Resolution Skill Discovery for Hierarchical Reinforcement Learning" accepted at NeurIPS'23 GCRL workshop.
-        </div>
-        <div class="news-item">
-            <span class="news-date">[2021]</span> Started Ph.D. at University of Bath.
-        </div>
-    </div> -->
-
     <div class="section">
         <h2>Research Interests</h2>
         <div class="research-interests">
             My research lies at the intersection of machine learning and artificial intelligence, with a particular focus on:
             <div class="interests-list">
                 • Hierarchical Reinforcement Learning<br>
-                • Goal-Oriented AI Systems<br>
+                • Goal-Oriented Agents<br>
                 • Skill Discovery and Planning<br>
+                • World models<br>
+                • Efficient Reasoning LLMs<br>
                 • Computer Vision and Remote Sensing<br>
-                • Semi-Supervised Learning
+                • Unsupervised and Semi-Supervised Learning
             </div>
         </div>
     </div>
 
     <div class="section">
         <h2>Selected Publications</h2>
+
+        <div class="publication">
+            <div class="publication-content">
+                <div class="publication-title">
+                    Options-based Large Language Models (OLLM)
+                </div>
+                <div class="publication-venue">Under Review</div>
+                <div class="publication-authors">Shashank Sharma, et al.</div>
+                <div class="publication-description">
+                    Proposed a lightweight architecture that replaces single next-token prediction with a set of learned options indexed by a discrete latent variable, enabling explicit modeling of variation without temperature sampling. Applied to a 1.7B-parameter backbone with only 1.56% trainable parameters, achieving ~70% correctness on OmniMath under optimal latent selection (vs. 51% LoRA baseline), while a learned policy in the latent space provides efficient reward optimization and reduces misalignments without additional KL penalties.
+                </div>
+                <div class="publication-links">
+                    <a href="#">Paper (coming soon)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="publication-title">
+                Discrete Hierarchical Planning (DHP) for HRL Agents
+            </div>
+            <div class="publication-venue">NeurIPS'25 ARLET & Efficient Reasoning Workshops</div>
+            <div class="publication-authors">Shashank Sharma, Vinay Namboodiri, Janina Hoffmann</div>
+            <div class="publication-description">
+                Replaced continuous distance metrics with discrete reachability checks for subgoal planning, recursively constructing tree-structured plans that decompose long-term goals into simpler subtasks. Achieved 100% success rate in 25-room visual navigation environments (vs. 90% baseline), using a novel advantage estimation strategy that inherenetly encourages shorter plans, balanced plan trees, and generalizes beyond the maximum tree depth. The method also introduces a novel memory-based exploration technique that outperforms expert data.
+            </div>
+            <div class="publication-links">
+                <a href="https://arxiv.org/abs/2502.01956">Paper</a>
+            </div>
+        </div>
         
         <div class="publication">
             <div class="publication-title">Multi-Resolution Skill Discovery for Hierarchical Reinforcement Learning</div>
             <div class="publication-venue">NeurIPS'23 Goal-Conditioned Reinforcement Learning Workshop</div>
             <div class="publication-authors">Shashank Sharma, Vinay Namboodiri, Janina Hoffmann</div>
+            <div class="publication-description">
+                Introduced a end-to-end training hierarchical RL framework where multiple skill modules predict subgoals at different temporal horizons (8, 16, 32, 64 steps), along with a learned meta-controller selecting the appropriate resolution based on task context. Achieved consistent improvements over single-resolution baselines on DeepMind Control Suite, Gym-Robotics, and long-horizon AntMaze tasks, demonstrating that temporal partitioning of skills provides a useful inductive bias for HRL.
+            </div>
+            <div class="publication-links">
+                <a href="https://arxiv.org/abs/2505.21410">Paper</a>
+            </div>
         </div>
 
         <div class="publication">
             <div class="publication-title">Evaluating Self and Semi-Supervised Methods for Remote Sensing Segmentation Tasks</div>
             <div class="publication-venue">Remote Sensing Applications, 2021</div>
-            <div class="publication-authors">Chirag Patel, Shashank Sharma, Valerie J. Pasquarella, Varun Gulshan</div>
+            <div class="publication-authors">Chaitanya Patel*, Shashank Sharma*, Valerie J. Pasquarella, Varun Gulshan</div>
+            <div class="publication-description">
+                Comprehensive evaluation of self and semi supervised learning methods for satellite image segmentation in water management applications. Demonstrated that the approaches achieve baseline performance with only 1% labeled data and improve AUC-PR by 5% when utilizing unlabeled data.
+            </div>
+            <div class="publication-links">
+                <a href="https://arxiv.org/abs/2111.10079">Paper</a>
+            </div>
         </div>
 
         <div class="publication">
             <div class="publication-title">No Modes Left Behind: Capturing the Data Distribution Effectively Using GANs</div>
             <div class="publication-venue">AAAI Conference on Artificial Intelligence, 2018 (Oral)</div>
             <div class="publication-authors">Shashank Sharma, Vinay P. Namboodiri</div>
+            <div class="publication-description">
+                Directly addresses mode collapse in GANs with a novel pair-wise gradient penalty method that ensures comprehensive data distribution coverage. Validated on toy datasets, surveillance video data (highly susceptible to mode collapse), and CelebA, demonstrating superior performance in capturing minor modes that traditional GANs frequently miss.
+            </div>
+            <div class="publication-links">
+                <a href="https://arxiv.org/abs/1802.00771">Paper</a>
+            </div>
         </div>
     </div>
 
     <div class="section">
-        <h2>Writing</h2>
+        <h2>Blogs</h2>
         
         <div class="publication">
             <div class="publication-title">A Simple Regularization for Your GANs</div>
@@ -251,8 +322,6 @@
             Computer Vision Researcher<br>
             <em>Research on Generative Adversarial Networks with Dr. Vinay Namboodiri</em>
         </div>
-        
-        <a href="#" class="cv-link">Download Full CV</a>
     </div>
 </body>
 </html>
