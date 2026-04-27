@@ -1,329 +1,1854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shashank Sharma</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shashank Sharma — Researcher & Engineer</title>
+  <meta name="description" content="Personal academic portfolio — research, publications, and projects.">
 
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: #333;
-            background: #fafafa;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #e0e0e0;
-        }
+  <style>
+    /* ========================================================================
+       CSS CUSTOM PROPERTIES
+       ======================================================================== */
+    :root {
+      /* Palette */
+      --color-bg-primary:    #faf8f5;
+      --color-bg-secondary:  #f2efe9;
+      --color-bg-dark:       #0f1923;
+      --color-bg-dark-mid:   #162030;
+      --color-accent:        #b07d2e;
+      --color-accent-light:  #d4a94e;
+      --color-accent-subtle: rgba(176, 125, 46, 0.08);
+      --color-text-primary:  #2a2a2a;
+      --color-text-secondary:#6b6b6b;
+      --color-text-tertiary: #999;
+      --color-text-on-dark:  #e2ded7;
+      --color-text-heading-on-dark: #f0ece5;
+      --color-border:        rgba(0, 0, 0, 0.07);
+      --color-border-dark:   rgba(255, 255, 255, 0.08);
+      --color-card-bg:       #ffffff;
+      --color-card-shadow:   rgba(0, 0, 0, 0.04);
 
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: normal;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+      /* Typography */
+      --font-display: 'Cormorant Garamond', 'Georgia', serif;
+      --font-body:    'Source Sans 3', 'Segoe UI', sans-serif;
+      --font-mono:    'JetBrains Mono', 'Consolas', monospace;
 
-        .header .affiliation {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
+      /* Spacing scale (8px base) */
+      --sp-1: 0.25rem;  /* 4 */
+      --sp-2: 0.5rem;   /* 8 */
+      --sp-3: 0.75rem;  /* 12 */
+      --sp-4: 1rem;     /* 16 */
+      --sp-5: 1.5rem;   /* 24 */
+      --sp-6: 2rem;     /* 32 */
+      --sp-7: 3rem;     /* 48 */
+      --sp-8: 4rem;     /* 64 */
+      --sp-9: 6rem;     /* 96 */
+      --sp-10: 8rem;    /* 128 */
 
-        .contact-info {
-            font-size: 0.95rem;
-            color: #666;
-        }
+      /* Layout */
+      --max-width: 1080px;
+      --nav-height: 56px;
 
-        .contact-info a {
-            color: #2980b9;
-            text-decoration: none;
-            margin: 0 15px;
-        }
+      /* Transitions */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --duration-fast: 0.2s;
+      --duration-mid:  0.4s;
+      --duration-slow: 0.7s;
+    }
 
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
+    /* ========================================================================
+       RESET & BASE
+       ======================================================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .section {
-            margin-bottom: 40px;
-        }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-        .section h2 {
-            font-size: 1.4rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-weight: normal;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 5px;
-        }
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg-primary);
+      overflow-x: hidden;
+    }
 
-        .about {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            text-align: justify;
-            color: #444;
-        }
+    ::selection {
+      background: var(--color-accent);
+      color: #fff;
+    }
 
-        .research-interests {
-            font-size: 1rem;
-            color: #444;
-        }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        .interests-list {
-            margin-top: 10px;
-            color: #555;
-        }
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color var(--duration-fast) ease;
+    }
+    a:hover {
+      color: var(--color-accent-light);
+    }
 
-        .publication {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
+    /* ========================================================================
+       GRAIN OVERLAY (subtle texture for depth)
+       ======================================================================== */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
 
-        .publication:last-child {
-            border-bottom: none;
-        }
+    /* ========================================================================
+       SCROLL-TRIGGERED REVEAL ANIMATIONS
+       ======================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity var(--duration-slow) var(--ease-out-expo),
+                  transform var(--duration-slow) var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .publication-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
+    /* Stagger children */
+    .reveal-stagger > .reveal {
+      transition-delay: calc(var(--stagger-index, 0) * 0.08s);
+    }
 
-        .publication-venue {
-            color: #2980b9;
-            font-style: italic;
-            margin-bottom: 5px;
-        }
+    /* ========================================================================
+       NAVIGATION
+       ======================================================================== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--duration-mid) ease,
+                  background var(--duration-mid) ease;
+    }
+    .nav.scrolled {
+      border-bottom-color: var(--color-border);
+    }
+    .nav__inner {
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 0 var(--sp-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--color-text-primary);
+      letter-spacing: -0.01em;
+      opacity: 0;
+      transition: opacity var(--duration-mid) ease;
+    }
+    .nav__links {
+      display: flex;
+      gap: var(--sp-5);
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--color-accent);
+      transition: width var(--duration-mid) var(--ease-out-expo);
+    }
+    .nav__links a:hover {
+      color: var(--color-text-primary);
+    }
+    .nav__links a:hover::after {
+      width: 100%;
+    }
 
-        .publication-authors {
-            color: #666;
-            font-size: 0.95rem;
-        }
+    .nav.scrolled .nav__name {
+      opacity: 1;
+    }
 
-        .publication-description {
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-top: 10px;
-        }
+    /* Mobile nav toggle */
+    .nav__toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--sp-2);
+    }
+    .nav__toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--color-text-primary);
+      margin: 4px 0;
+      transition: transform var(--duration-fast) ease, opacity var(--duration-fast) ease;
+    }
 
-        .publication-image {
-            flex-shrink: 0;
-            width: 200px;
-            height: 150px;
-        }
+    /* ========================================================================
+       HERO
+       ======================================================================== */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: var(--color-bg-dark);
+      overflow: hidden;
+    }
 
-        .publication-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
+    /* Subtle geometric grid pattern */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+    }
 
-        .publication-content {
-            flex: 1;
-        }
+    /* Warm ambient glow */
+    .hero__glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(176, 125, 46, 0.06) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
 
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--sp-6);
+      max-width: 780px;
+    }
 
-        .cv-link {
-            display: inline-block;
-            background: #2980b9;
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            margin-top: 20px;
-        }
+    .hero__label {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--color-accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-5);
+      opacity: 0;
+      animation: heroFadeUp 0.8s var(--ease-out-expo) 0.3s forwards;
+    }
 
-        .cv-link:hover {
-            background: #21618c;
-        }
+    .hero__name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 600;
+      color: var(--color-text-heading-on-dark);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--sp-5);
+      opacity: 0;
+      animation: heroFadeUp 0.8s var(--ease-out-expo) 0.5s forwards;
+    }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 20px 15px;
-            }
+    .hero__title {
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: var(--color-text-on-dark);
+      line-height: 1.6;
+      max-width: 540px;
+      margin: 0 auto var(--sp-7);
+      opacity: 0;
+      animation: heroFadeUp 0.8s var(--ease-out-expo) 0.7s forwards;
+    }
 
-            .header h1 {
-                font-size: 2rem;
-            }
+    .hero__links {
+      display: flex;
+      gap: var(--sp-5);
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: heroFadeUp 0.8s var(--ease-out-expo) 0.9s forwards;
+    }
 
-            .contact-info a {
-                margin: 0 8px;
-                display: inline-block;
-                margin-bottom: 5px;
-            }
+    .hero__link {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--color-text-on-dark);
+      opacity: 0.6;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      transition: opacity var(--duration-fast) ease, color var(--duration-fast) ease;
+    }
+    .hero__link:hover {
+      opacity: 1;
+      color: var(--color-accent-light);
+    }
+    .hero__link svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
 
-            .publication {
-                flex-direction: column;
-            }
+    /* Scroll indicator */
+    .hero__scroll {
+      position: absolute;
+      bottom: var(--sp-7);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-3);
+      opacity: 0;
+      animation: heroFadeUp 0.8s var(--ease-out-expo) 1.2s forwards;
+    }
+    .hero__scroll-text {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .hero__scroll-line {
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
 
-            .publication-image {
-                width: 100%;
-                height: 200px;
-            }
-        }
-    </style>
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%      { opacity: 0.7; transform: scaleY(1.15); }
+    }
+
+    /* ========================================================================
+       SECTION LAYOUT
+       ======================================================================== */
+    .section {
+      padding: var(--sp-9) var(--sp-6);
+    }
+    .section--alt {
+      background: var(--color-bg-secondary);
+    }
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-on-dark);
+    }
+    .section__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Section heading */
+    .section__header {
+      margin-bottom: var(--sp-7);
+    }
+    .section__label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-3);
+    }
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+    .section--dark .section__title {
+      color: var(--color-text-heading-on-dark);
+    }
+    .section__subtitle {
+      font-size: 1.02rem;
+      font-weight: 300;
+      color: var(--color-text-secondary);
+      margin-top: var(--sp-3);
+      max-width: 600px;
+      line-height: 1.65;
+    }
+    .section--dark .section__subtitle {
+      color: rgba(226, 222, 215, 0.7);
+    }
+
+    /* Decorative line beside section header */
+    .section__header::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 2px;
+      background: var(--color-accent);
+      margin-bottom: var(--sp-5);
+      border-radius: 1px;
+    }
+
+    /* ========================================================================
+       ABOUT
+       ======================================================================== */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    .about__photo-frame {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--color-bg-secondary);
+      border: 1px solid var(--color-border);
+    }
+    .about__photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Placeholder state */
+    .about__photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: var(--sp-2);
+      color: var(--color-text-tertiary);
+      font-size: 0.8rem;
+    }
+    .about__photo-placeholder svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-text-tertiary);
+      fill: none;
+      stroke-width: 1.2;
+      opacity: 0.5;
+    }
+
+    /* Subtle accent border on one side */
+    .about__photo-frame::after {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: -1px;
+      width: 2.5px;
+      height: 40px;
+      background: var(--color-accent);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .about__text {
+      padding-top: var(--sp-2);
+    }
+    .about__text p {
+      margin-bottom: var(--sp-5);
+      color: var(--color-text-secondary);
+      font-size: 1.02rem;
+    }
+    .about__text p:first-of-type {
+      color: var(--color-text-primary);
+      font-size: 1.08rem;
+    }
+
+    .about__details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-4) var(--sp-6);
+      margin-top: var(--sp-6);
+      padding-top: var(--sp-6);
+      border-top: 1px solid var(--color-border);
+    }
+    .about__detail-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-1);
+    }
+    .about__detail-value {
+      font-size: 0.95rem;
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    /* ========================================================================
+       RESEARCH AREAS
+       ======================================================================== */
+    .research__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--sp-5);
+    }
+
+    .research-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: var(--sp-6);
+      position: relative;
+      transition: transform var(--duration-mid) var(--ease-out-expo),
+                  box-shadow var(--duration-mid) var(--ease-out-expo),
+                  border-color var(--duration-mid) ease;
+    }
+    .research-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--color-card-shadow);
+      border-color: rgba(176, 125, 46, 0.2);
+    }
+
+    .research-card__icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--color-accent-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--sp-5);
+    }
+    .research-card__icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-accent);
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .research-card__title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--sp-3);
+    }
+    .research-card__desc {
+      font-size: 0.92rem;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ========================================================================
+       PUBLICATIONS
+       ======================================================================== */
+    .pub-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-5);
+    }
+
+    .pub-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform var(--duration-mid) var(--ease-out-expo),
+                  box-shadow var(--duration-mid) var(--ease-out-expo);
+    }
+    .pub-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Visual Abstract area — landscape 2:1 */
+    .pub-card__visual {
+      position: relative;
+      background: var(--color-bg-secondary);
+      aspect-ratio: 2 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .pub-card__visual img,
+    .pub-card__visual video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Placeholder for visual abstract */
+    .pub-card__visual-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-3);
+      color: var(--color-text-tertiary);
+      padding: var(--sp-6);
+      text-align: center;
+    }
+    .pub-card__visual-placeholder svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--color-text-tertiary);
+      fill: none;
+      stroke-width: 1.2;
+      opacity: 0.4;
+    }
+    .pub-card__visual-placeholder span {
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      opacity: 0.6;
+    }
+
+    /* Visual type badge */
+    .pub-card__visual-badge {
+      position: absolute;
+      top: var(--sp-3);
+      right: var(--sp-3);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 4px;
+      backdrop-filter: blur(8px);
+    }
+
+    .pub-card__content {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .pub-card__venue {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-3);
+    }
+
+    .pub-card__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: var(--sp-3);
+    }
+
+    .pub-card__authors {
+      font-size: 0.88rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--sp-4);
+      line-height: 1.5;
+    }
+    .pub-card__authors strong {
+      color: var(--color-text-primary);
+      font-weight: 600;
+    }
+
+    .pub-card__insight {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--sp-5);
+      padding-left: var(--sp-4);
+      border-left: 2px solid var(--color-accent-subtle);
+      font-style: italic;
+    }
+
+    .pub-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+      margin-bottom: var(--sp-5);
+    }
+    .pub-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      padding: 3px 10px;
+      border-radius: 3px;
+      background: var(--color-accent-subtle);
+      color: var(--color-accent);
+    }
+
+    .pub-card__links {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: var(--sp-4);
+    }
+    .pub-link {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: 5px 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 5px;
+      transition: all var(--duration-fast) ease;
+    }
+    .pub-link:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      background: var(--color-accent-subtle);
+    }
+    .pub-link svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ========================================================================
+    BLOG / WRITING
+    ======================================================================== */
+    .blog__grid {
+      display: grid;
+      /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-5);
+    }
+
+    .blog-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      transition: transform var(--duration-mid) var(--ease-out-expo),
+                  box-shadow var(--duration-mid) var(--ease-out-expo);
+    }
+    .blog-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .blog-card__thumb {
+      aspect-ratio: auto;
+      min-height: 100%;
+      background: var(--color-bg-secondary);
+      overflow: hidden;
+    }
+    .blog-card__thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-card__content {
+      padding: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .blog-card__meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.06em;
+      margin-bottom: var(--sp-3);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .blog-card__outlet {
+      color: var(--color-accent);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .blog-card__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: var(--sp-3);
+    }
+
+    .blog-card__excerpt {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--sp-5);
+    }
+
+    .blog-card__read {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      margin-top: auto;
+      transition: gap var(--duration-fast) ease;
+    }
+    .blog-card:hover .blog-card__read {
+      gap: var(--sp-3);
+    }
+    .blog-card__read svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ========================================================================
+       PROJECTS
+       ======================================================================== */
+    .projects__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--sp-5);
+    }
+
+    .project-card {
+      background: var(--color-bg-dark-mid);
+      border: 1px solid var(--color-border-dark);
+      border-radius: 10px;
+      padding: var(--sp-6);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--duration-mid) var(--ease-out-expo),
+                  border-color var(--duration-mid) ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(176, 125, 46, 0.25);
+    }
+
+    /* Subtle corner accent */
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60px; height: 60px;
+      background: radial-gradient(circle at top right, rgba(176, 125, 46, 0.08) 0%, transparent 70%);
+    }
+
+    .project-card__header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: var(--sp-4);
+    }
+    .project-card__type {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--color-accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .project-card__year {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: rgba(226, 222, 215, 0.35);
+    }
+
+    .project-card__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-text-heading-on-dark);
+      line-height: 1.3;
+      margin-bottom: var(--sp-3);
+    }
+    .project-card__desc {
+      font-size: 0.9rem;
+      color: rgba(226, 222, 215, 0.6);
+      line-height: 1.6;
+      margin-bottom: var(--sp-5);
+    }
+    .project-card__tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2);
+    }
+    .project-tech-tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.04);
+      color: rgba(226, 222, 215, 0.5);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .project-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      margin-top: var(--sp-5);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--color-accent-light);
+      opacity: 0.7;
+      transition: opacity var(--duration-fast) ease, gap var(--duration-fast) ease;
+    }
+    .project-card:hover .project-card__link {
+      opacity: 1;
+      gap: var(--sp-3);
+    }
+    .project-card__link svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ========================================================================
+       EXPERIENCE TIMELINE
+       ======================================================================== */
+    .timeline {
+      position: relative;
+      padding-left: var(--sp-8);
+    }
+    /* Vertical line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-border));
+    }
+
+    .timeline__item {
+      position: relative;
+      padding-bottom: var(--sp-7);
+    }
+    .timeline__item:last-child {
+      padding-bottom: 0;
+    }
+
+    /* Dot on the line */
+    .timeline__item::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--sp-8) + 2px);
+      top: 8px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--color-bg-primary);
+      border: 2px solid var(--color-accent);
+      z-index: 1;
+    }
+    /* Current/active position */
+    .timeline__item--current::before {
+      background: var(--color-accent);
+      box-shadow: 0 0 0 4px var(--color-accent-subtle);
+    }
+
+    .timeline__period {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.06em;
+      margin-bottom: var(--sp-2);
+    }
+    .timeline__role {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--sp-1);
+    }
+    .timeline__org {
+      font-size: 0.95rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      margin-bottom: var(--sp-3);
+    }
+    .timeline__desc {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    /* ========================================================================
+       CONTACT / FOOTER
+       ======================================================================== */
+    .footer {
+      background: var(--color-bg-dark);
+      padding: var(--sp-8) var(--sp-6) var(--sp-7);
+      text-align: center;
+      color: var(--color-text-on-dark);
+    }
+    .footer__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .footer__heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--color-text-heading-on-dark);
+      margin-bottom: var(--sp-4);
+    }
+    .footer__text {
+      font-size: 0.95rem;
+      color: rgba(226, 222, 215, 0.6);
+      max-width: 480px;
+      margin: 0 auto var(--sp-6);
+      line-height: 1.65;
+    }
+    .footer__email {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: var(--color-accent-light);
+      display: inline-block;
+      padding: var(--sp-3) var(--sp-5);
+      border: 1px solid rgba(176, 125, 46, 0.25);
+      border-radius: 6px;
+      margin-bottom: var(--sp-9);
+      transition: all var(--duration-fast) ease;
+    }
+    .footer__email:hover {
+      background: rgba(176, 125, 46, 0.08);
+      border-color: var(--color-accent);
+      color: var(--color-accent-light);
+    }
+
+    .footer__social {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-5);
+      margin-bottom: var(--sp-8);
+    }
+    .footer__social a {
+      color: rgba(226, 222, 215, 0.4);
+      transition: color var(--duration-fast) ease, transform var(--duration-fast) ease;
+    }
+    .footer__social a:hover {
+      color: var(--color-accent-light);
+      transform: translateY(-2px);
+    }
+    .footer__social svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .footer__divider {
+      width: 40px;
+      height: 1px;
+      background: var(--color-border-dark);
+      margin: 0 auto var(--sp-5);
+    }
+    .footer__copy {
+      font-size: 0.78rem;
+      color: rgba(226, 222, 215, 0.25);
+      font-family: var(--font-mono);
+      letter-spacing: 0.03em;
+    }
+
+    /* ========================================================================
+       RESPONSIVE
+       ======================================================================== */
+    @media (max-width: 900px) {
+      .pub-list {
+        grid-template-columns: 1fr;
+        /* max-width: 560px; */
+      }
+      .blog__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: var(--sp-8) var(--sp-5);
+      }
+
+      .about__grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-6);
+      }
+      .about__photo-frame {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      .about__details {
+        grid-template-columns: 1fr;
+      }
+
+      .nav__links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0; right: 0;
+        flex-direction: column;
+        background: rgba(250, 248, 245, 0.97);
+        backdrop-filter: blur(20px);
+        padding: var(--sp-5) var(--sp-6);
+        border-bottom: 1px solid var(--color-border);
+        gap: var(--sp-4);
+      }
+      .nav__links.open {
+        display: flex;
+      }
+      .nav__toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__name {
+        font-size: 2.4rem;
+      }
+      .section {
+        padding: var(--sp-8) var(--sp-4);
+      }
+      .projects__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========================================================================
+       UTILITY
+       ======================================================================== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Shashank Sharma</h1>
-        <div class="affiliation">Ph.D. Student, Computer Science<br>University of Bath</div>
-        <div class="contact-info">
-            <a href="mailto:shashank.879@gmail.com">Email</a>
-            <a href="https://scholar.google.co.uk/citations?user=VLtC0icAAAAJ&hl=en">Google Scholar</a>
-            <a href="https://github.com/shashank879">GitHub</a>
-            <a href="https://www.linkedin.com/in/shashank879">LinkedIn</a>
-            <a href="https://docs.google.com/document/d/1i67ydm_hyxtp1MQNdLEtnAbBeULZKCPIOJUO0GEGCyA/edit?usp=sharing">CV</a>
-        </div>
+
+  <!-- ====================================================================
+       NAVIGATION
+       ==================================================================== -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#" class="nav__name">Shashank Sharma</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <!-- <li><a href="#contact">Contact</a></li> -->
+      </ul>
     </div>
+  </nav>
 
-    <div class="section">
-        <div class="about">
-            I am a Ph.D. candidate in Computer Science at the University of Bath, working with Dr. Vinay Namboodiri and Dr. Janina Hoffmann. My research focuses on developing automated goal-oriented reinforcement learning agents that can learn skills, plan hierarchically, and discover goals autonomously.
-
-            <br><br>
-
-            Prior to my Ph.D., I was a Pre-Doc Researcher at Google, where I developed semi-supervised learning methods for satellite image segmentation. I have also worked extensively in natural language processing, achieving top rankings on the Stanford SQuAD leaderboards.
-        </div>
+  <!-- ====================================================================
+       HERO
+       ==================================================================== -->
+  <header class="hero" id="hero">
+    <div class="hero__glow"></div>
+    <div class="hero__content">
+      <p class="hero__label">PhD Researcher &amp; Engineer</p>
+      <h1 class="hero__name">Shashank Sharma</h1>
+      <p class="hero__title">
+        Building agents that learn like biological systems
+        <!-- e.g., "Exploring how agents learn to act — from theory to real-world systems." -->
+      </p>
+      <div class="hero__links">
+        <a href="mailto:shashank.879@gmail.com" class="hero__link">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          Email
+        </a>
+        <a href="https://github.com/shashank879" class="hero__link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://scholar.google.co.uk/citations?user=VLtC0icAAAAJ&hl=en" class="hero__link">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M9 12h6M12 9v6"/><circle cx="7" cy="7" r="1"/></svg>
+          Scholar
+        </a>
+        <a href="https://www.linkedin.com/in/shashank879" class="hero__link">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://docs.google.com/document/d/1i67ydm_hyxtp1MQNdLEtnAbBeULZKCPIOJUO0GEGCyA/edit?usp=sharing" class="hero__link">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+          CV
+        </a>
+      </div>
     </div>
+  </header>
 
-    <div class="section">
-        <h2>Research Interests</h2>
-        <div class="research-interests">
-            My research lies at the intersection of machine learning and artificial intelligence, with a particular focus on:
-            <div class="interests-list">
-                • Hierarchical Reinforcement Learning<br>
-                • Goal-Oriented Agents<br>
-                • Skill Discovery and Planning<br>
-                • World models<br>
-                • Efficient Reasoning LLMs<br>
-                • Computer Vision and Remote Sensing<br>
-                • Unsupervised and Semi-Supervised Learning
-            </div>
+  <!-- ====================================================================
+       ABOUT
+       ==================================================================== -->
+  <section class="section" id="about">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <span class="section__label">01 — About</span>
+        <h2 class="section__title">Hello, I'm Shashank!</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__photo-frame reveal" style="--stagger-index:1">
+          <!-- Replace with: <img src="photo.jpg" alt="Shashank Sharma"> -->
+          <!-- <div class="about__photo-placeholder">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+            <span>Your photo</span>
+          </div> -->
+          <img src="media/website_pfp.png" alt="Shashank Sharma">
         </div>
+        <div class="about__text reveal" style="--stagger-index:2">
+          <p>
+            I'm a PhD researcher at the University of Bath, supervised by Dr. Vinay Namboodiri and Dr. Janina Hoffmann. My work is motivated by how biological agents learn: decomposing behavior into reusable skills, planning over long horizons, and adapting with minimal external guidance.
+          </p>
+          <p>
+            Before the PhD, I spent seven years as a software engineer and applied researcher: shipping mobile applications, conversational AI systems, and computer vision pipelines at Google. I write code at every level of the stack, from CUDA kernels to end-to-end applications. I care about research that works not just in theory, but in systems that ship.
+          </p>
+          <div class="about__details">
+            <div>
+              <div class="about__detail-label">Affiliation</div>
+              <div class="about__detail-value">University of Bath / ART-AI</div>
+            </div>
+            <div>
+              <div class="about__detail-label">Focus</div>
+              <div class="about__detail-value">Reinforcement Learning</div>
+            </div>
+            <div>
+              <div class="about__detail-label">Advisor</div>
+              <div class="about__detail-value">Dr. Vinay Namboodiri</div>
+            </div>
+            <div>
+              <div class="about__detail-label">Status</div>
+              <div class="about__detail-value">PhD Candidate, Year 2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-        <h2>Selected Publications</h2>
-
-        <div class="publication">
-            <div class="publication-content">
-                <div class="publication-title">
-                    Options-based Large Language Models (OLLM)
-                </div>
-                <div class="publication-venue">Under Review</div>
-                <div class="publication-authors">Shashank Sharma, et al.</div>
-                <div class="publication-description">
-                    Proposed a lightweight architecture that replaces single next-token prediction with a set of learned options indexed by a discrete latent variable, enabling explicit modeling of variation without temperature sampling. Applied to a 1.7B-parameter backbone with only 1.56% trainable parameters, achieving ~70% correctness on OmniMath under optimal latent selection (vs. 51% LoRA baseline), while a learned policy in the latent space provides efficient reward optimization and reduces misalignments without additional KL penalties.
-                </div>
-                <div class="publication-links">
-                    <a href="#">[Paper] (coming soon)</a>
-                </div>
-            </div>
+  <!-- ====================================================================
+       RESEARCH AREAS
+       ==================================================================== -->
+  <section class="section section--alt" id="research">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <span class="section__label">02 — Research</span>
+        <h2 class="section__title">Research Interests</h2>
+        <!-- <p class="section__subtitle">
+          A brief framing of the broad themes that unify your work — what questions drive you.
+        </p> -->
+      </div>
+      <div class="research__grid reveal-stagger">
+        <!-- Card 1 -->
+        <div class="research-card reveal" style="--stagger-index:0">
+          <div class="research-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3 class="research-card__title">Brain-Inspired Hierarchical Learning</h3>
+          <p class="research-card__desc">
+            Biological agents decompose behavior into reusable skills across levels of abstraction. I study how artificial agents can do the same like, acquiring skills autonomously, structuring goals temporally, and planning over long horizons through hierarchical decomposition.
+          </p>
         </div>
 
-        <div class="publication">
-            <div class="publication-title">
-                Discrete Hierarchical Planning (DHP) for HRL Agents
-            </div>
-            <div class="publication-venue">NeurIPS'25 ARLET & Efficient Reasoning Workshops</div>
-            <div class="publication-authors">Shashank Sharma, Vinay Namboodiri, Janina Hoffmann</div>
-            <div class="publication-description">
-                Replaced continuous distance metrics with discrete reachability checks for subgoal planning, recursively constructing tree-structured plans that decompose long-term goals into simpler subtasks. Achieved 100% success rate in 25-room visual navigation environments via self-exploration (vs. 90% baseline) and 84% success at OGBench humanoid-giant maze (12% previous SOTA). Our novel advantage estimation strategy inherenetly encourages shorter plans, balanced plan trees, and generalizes beyond the maximum tree depth. The method also introduces a novel memory-based exploration technique that outperforms expert data.
-            </div>
-            <div class="publication-links">
-                <a href="https://arxiv.org/abs/2502.01956">[Paper]</a>
-                <a href="https://sites.google.com/view/dhp-video/home">[Video]</a>
-            </div>
+        <!-- Card 2 -->
+        <div class="research-card reveal" style="--stagger-index:1">
+          <div class="research-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3 class="research-card__title">Learning with Minimal Supervision</h3>
+          <p class="research-card__desc">
+            Labels are expensive; structure is abundant. I'm interested in methods that learn from data itself: self-, semi-, un-supervised objectives, and intrinsic motivation. Understanding how far agents can get with minimal external guidance.
+          </p>
         </div>
 
-        <div class="publication">
-            <div class="publication-title">Multi-Resolution Skill Discovery for Hierarchical Reinforcement Learning</div>
-            <div class="publication-venue">NeurIPS'23 Goal-Conditioned Reinforcement Learning Workshop</div>
-            <div class="publication-authors">Shashank Sharma, Vinay Namboodiri, Janina Hoffmann</div>
-            <div class="publication-description">
-                Introduced a end-to-end training hierarchical RL framework where multiple skill modules predict subgoals at different temporal horizons (8, 16, 32, 64 steps), along with a learned meta-controller selecting the appropriate resolution based on task context. Achieved consistent improvements over single-resolution baselines on DeepMind Control Suite, Gym-Robotics, and long-horizon AntMaze tasks, demonstrating that temporal partitioning of skills provides a useful inductive bias for HRL.
-            </div>
-            <div class="publication-links">
-                <a href="https://arxiv.org/abs/2505.21410">[Paper]</a>
-                <a href="https://sites.google.com/view/multi-res-skills/home">[Video]</a>
-            </div>
+        <!-- Card 3 -->
+        <div class="research-card reveal" style="--stagger-index:2">
+          <div class="research-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="research-card__title">Grounding in the Physical World</h3>
+          <p class="research-card__desc">
+            Learned policies ultimately need to operate in real environments with noisy sensors and physical constraints. I'm drawn to closing the gap between simulated agents and real-world robotic deployment.
+          </p>
         </div>
-
-        <div class="publication">
-            <div class="publication-title">Evaluating Self and Semi-Supervised Methods for Remote Sensing Segmentation Tasks</div>
-            <div class="publication-venue">Remote Sensing Applications, 2021</div>
-            <div class="publication-authors">Chaitanya Patel*, Shashank Sharma*, Valerie J. Pasquarella, Varun Gulshan</div>
-            <div class="publication-description">
-                Comprehensive evaluation of self and semi supervised learning methods for satellite image segmentation in water management applications. Demonstrated that the approaches achieve baseline performance with only 1% labeled data and improve AUC-PR by 5% when utilizing unlabeled data.
-            </div>
-            <div class="publication-links">
-                <a href="https://arxiv.org/abs/2111.10079">[Paper]</a>
-            </div>
-        </div>
-
-        <div class="publication">
-            <div class="publication-title">No Modes Left Behind: Capturing the Data Distribution Effectively Using GANs</div>
-            <div class="publication-venue">AAAI Conference on Artificial Intelligence, 2018 (Oral)</div>
-            <div class="publication-authors">Shashank Sharma, Vinay P. Namboodiri</div>
-            <div class="publication-description">
-                Directly addresses mode collapse in GANs with a novel pair-wise gradient penalty method that ensures comprehensive data distribution coverage. Validated on toy datasets, surveillance video data (highly susceptible to mode collapse), and CelebA, demonstrating superior performance in capturing minor modes that traditional GANs frequently miss.
-            </div>
-            <div class="publication-links">
-                <a href="https://arxiv.org/abs/1802.00771">[Paper]</a>
-            </div>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-        <h2>Blogs</h2>
+  <!-- ====================================================================
+       PUBLICATIONS
+       ==================================================================== -->
+  <section class="section" id="publications">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <span class="section__label">03 — Publications</span>
+        <h2 class="section__title">Selected Publications</h2>
+        <!-- <p class="section__subtitle">
+          Each entry includes a visual abstract — a figure, diagram, or animation
+          that captures the core idea at a glance.
+        </p> -->
+      </div>
 
-        <div class="publication">
-            <div class="publication-title">A Simple Regularization for Your GANs</div>
-            <div class="publication-venue">Medium - Data Science Publication, 2023</div>
-            <div class="publication-authors">An intuitive explanation of the pair-wise gradient penalty method for addressing mode collapse in GANs, making complex research insights accessible to a broader audience.</div>
-            <div style="margin-top: 8px;">
-                <a href="https://medium.com/data-science/a-simple-regularization-for-your-gans-12ea2cd168e" style="color: #2980b9; text-decoration: none; font-size: 0.9rem;">Read on Medium →</a>
+      <div class="pub-list">
+        <!-- Publication 1 -->
+        <article class="pub-card reveal">
+          <div class="pub-card__visual">
+            <!-- 
+              VISUAL ABSTRACT: Replace this placeholder with your key figure.
+              
+              Options:
+              - Static image:   <img src="pub1-visual.png" alt="Descriptive alt text">
+              - Animated GIF:   <img src="pub1-visual.gif" alt="...">
+              - Looping video:  <video src="pub1-visual.mp4" autoplay loop muted playsinline></video>
+              - SVG diagram:    Inline <svg> for crisp, scalable figures
+              
+              Guidelines:
+              - Choose the ONE figure that best conveys the idea to a non-specialist.
+              - Prefer diagrams > plots > screenshots.
+              - Keep GIFs/videos short (3–8 seconds, looping).
+              - Alt text should describe the concept, not just the visual.
+            -->
+            <!-- <div class="pub-card__visual-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Visual abstract · image, diagram, or animation</span>
+            </div> -->
+            <video src="media/dhp_sample.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="pub-card__content">
+            <span class="pub-card__venue">NeurIPS ARLET & Efficient Reasoning Workshops · 2025</span>
+            <h3 class="pub-card__title">DHP: Discrete Hierarchical Planning For HRL Agents</h3>
+            <p class="pub-card__authors"><strong>Shashank Sharma</strong>, Janina Hoffmann, Vinay Namboodiri</p>
+            <p class="pub-card__insight">
+              "Hierarchical goal-oriented planning via recursive task decomposition, scaling to arbitrarily long horizons."
+            </p>
+            <div class="pub-card__tags">
+              <span class="pub-tag">Hierarchical RL</span>
+              <span class="pub-tag">Planning</span>
+              <span class="pub-tag">Tensorflow2</span>
+              <span class="pub-tag">JAX</span>
             </div>
-        </div>
+            <div class="pub-card__links">
+              <a href="https://arxiv.org/abs/2502.01956" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+              <a href="#" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+                Code
+              </a>
+              <!-- <a href="#" class="pub-link">
+                <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                Video
+              </a> -->
+              <a href="https://sites.google.com/view/dhp-video/home" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Project
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- Publication 2 -->
+        <article class="pub-card reveal">
+          <div class="pub-card__visual">
+            <!-- <div class="pub-card__visual-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Visual abstract · image, diagram, or animation</span>
+            </div> -->
+            <video src="media/mrs_video.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="pub-card__content">
+            <span class="pub-card__venue">NeurIPS GCRL Workshop · 2023</span>
+            <h3 class="pub-card__title">Multi-Resolution Skills for Hierarchical Reinforcement Learning</h3>
+            <p class="pub-card__authors"><strong>Shashank Sharma</strong>, Janina Hoffmann, Vinay Namboodiri</p>
+            <p class="pub-card__insight">
+              "Structures the goal representations temporally, learning fine and coarse grained skills explicitly. A meta-controller interleaves the skills for optimal behavior."
+            </p>
+            <div class="pub-card__tags">
+              <span class="pub-tag">Hierarchical RL</span>
+              <span class="pub-tag">Goal Representations</span>
+              <span class="pub-tag">Tensorflow2</span>
+            </div>
+            <div class="pub-card__links">
+              <a href="https://arxiv.org/abs/2505.21410" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+              <a href="#" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+                Code
+              </a>
+              <a href="https://sites.google.com/view/multi-res-skills/home" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Project page
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- Publication 3 -->
+        <article class="pub-card reveal">
+          <div class="pub-card__visual">
+            <!-- <div class="pub-card__visual-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Visual abstract · image, diagram, or animation</span>
+            </div> -->
+            <img src="media/remsense_seg.png" alt="Evaluating Self and Semi-Supervised Methods for Remote Sensing Segmentation Tasks">
+          </div>
+          <div class="pub-card__content">
+            <span class="pub-card__venue">Preprint · 2021</span>
+            <h3 class="pub-card__title">Evaluating Self and Semi-Supervised Methods for Remote Sensing Segmentation Tasks</h3>
+            <p class="pub-card__authors"><strong>Chaitanya Patel*</strong>, <strong>Shashank Sharma*</strong>, Varul Gulshan</p>
+            <p class="pub-card__insight">
+              "Quantifying exactly how much Self and Semi-supervised methods using unlabeled satellite imagery can help improve segmentation — and what breaks under geographic domain shift."
+            </p>
+            <div class="pub-card__tags">
+              <span class="pub-tag">Computer Vision</span>
+              <span class="pub-tag">Remote Sensing</span>
+              <span class="pub-tag">Tensorflow2</span>
+              <span class="pub-tag">Multi-GPU/TPU</span>
+            </div>
+            <div class="pub-card__links">
+              <a href="https://arxiv.org/abs/2111.10079" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- Publication 4 -->
+        <article class="pub-card reveal">
+          <div class="pub-card__visual">
+            <!-- <div class="pub-card__visual-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Visual abstract · image, diagram, or animation</span>
+            </div> -->
+            <img src="media/logan_viz1.png" alt="No Modes Left Behind: Capturing the Data Distribution Effectively Using GANs">
+            <img src="media/logan_viz2.png" alt="No Modes Left Behind: Capturing the Data Distribution Effectively Using GANs">
+          </div>
+          <div class="pub-card__content">
+            <span class="pub-card__venue">[Oral] AAAI Conference on Artificial Intelligence · 2018</span>
+            <h3 class="pub-card__title">No Modes Left Behind: Capturing the Data Distribution Effectively Using GANs</h3>
+            <p class="pub-card__authors"><strong>Shashank Sharma</strong>, Vinay Namboodiri</p>
+            <p class="pub-card__insight">
+              "Directly addresses mode collapse in Generative Adversarial Networks using a novel higher-order gradient penalty that ensures comprehensive data distribution coverage with a theoretical guarantee."
+            </p>
+            <div class="pub-card__tags">
+              <span class="pub-tag">GANs</span>
+              <span class="pub-tag">Generative Models</span>
+              <span class="pub-tag">Tensorflow1</span>
+            </div>
+            <div class="pub-card__links">
+              <a href="https://arxiv.org/abs/1802.00771" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+              <a href="https://github.com/shashank879/logan/" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+                Code
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- Publication 5 -->
+        <article class="pub-card reveal">
+          <div class="pub-card__visual">
+            <div class="pub-card__visual-placeholder">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              <span>Visual abstract · image, diagram, or animation</span>
+            </div>
+          </div>
+          <div class="pub-card__content">
+            <span class="pub-card__venue">Preprint · 2025</span>
+            <h3 class="pub-card__title">Options-based Large Language Models (OLLM)</h3>
+            <p class="pub-card__authors"><strong>Shashank Sharma</strong>, Janina Hoffmann, Vinay Namboodiri</p>
+            <p class="pub-card__insight">
+              "Replacing single next-token prediction with a set of learned options gives LLMs controllable diversity and makes RL alignment structurally simple."
+            </p>
+            <div class="pub-card__tags">
+              <span class="pub-tag">LLMs</span>
+              <span class="pub-tag">RL for Language</span>
+              <span class="pub-tag">Pytorch</span>
+            </div>
+            <div class="pub-card__links">
+              <a href="#" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Paper
+              </a>
+              <!-- <a href="#" class="pub-link">
+                <svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+                Code
+              </a> -->
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more pub-card entries as needed -->
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-        <h2>Experience</h2>
-        <div class="about">
-            <strong>Google</strong> (2020-2022)<br>
-            Pre-Doc Researcher, Computer Vision Team<br>
-            <em>Research on semi-supervised learning for satellite image segmentation</em>
+  <!-- ====================================================================
+     BLOG / WRITING
+     ==================================================================== -->
+  <section class="section section--alt" id="writing">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <span class="section__label">04 — Writing</span>
+        <h2 class="section__title">Blog & Articles</h2>
+        <!-- <p class="section__subtitle">
+          Long-form writing on research ideas, tutorials, and technical deep-dives.
+        </p> -->
+      </div>
+      <div class="blog__grid reveal-stagger">
 
-            <br><br>
+        <a href="https://medium.com/data-science/a-simple-regularization-for-your-gans-12ea2cd168e" class="blog-card reveal" style="--stagger-index:0">
+          <div class="blog-card__thumb">
+            <img src="media/blog_img.png" alt="Article thumbnail">
+          </div>
+          <div class="blog-card__content">
+            <div class="blog-card__meta">
+              <span class="blog-card__outlet">Towards Data Science</span>
+              <span>·</span>
+              <span>July 2024</span>
+            </div>
+            <h3 class="blog-card__title">A Simple Regularization for Your GANs</h3>
+            <p class="blog-card__excerpt">
+              A simple higher-order gradient penalty that directly addresses mode collapse in GANs, with a theoretical guarantee of comprehensive data distribution coverage.
+            </p>
+            <span class="blog-card__read">
+              Read article
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
 
-            <strong>Active.ai</strong> (2017-2019)<br>
-            AI Researcher, NLP/NLG Division<br>
-            <em>Developed conversational AI systems for financial services</em>
+        <!-- Duplicate the blog-card block above for additional articles -->
 
-            <br><br>
-
-            <strong>IIT Kanpur</strong> (2016-2017)<br>
-            Computer Vision Researcher<br>
-            <em>Research on Generative Adversarial Networks with Dr. Vinay Namboodiri</em>
-        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- ====================================================================
+       PROJECTS
+       ==================================================================== -->
+  <section class="section section--dark" id="projects">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <span class="section__label">05 — Projects</span>
+        <h2 class="section__title">Selected Projects</h2>
+        <!-- <p class="section__subtitle">
+          Systems built, tools developed, and ideas taken from concept to working code.
+        </p> -->
+      </div>
+      <div class="projects__grid reveal-stagger">
+        <!-- Project 1 -->
+        <div class="project-card reveal" style="--stagger-index:0">
+          <div class="project-card__header">
+            <span class="project-card__type">Embedded Systems</span>
+            <span class="project-card__year">2020</span>
+          </div>
+          <h3 class="project-card__title">MQTT-Based IoT Framework</h3>
+          <p class="project-card__desc">
+            End-to-end IoT framework built from hardware up — custom ESP32 device communicating over MQTT with a local server. Designed for modular device integration across a home network.
+          </p>
+          <div class="project-card__tech">
+            <span class="project-tech-tag">ESP32</span>
+            <span class="project-tech-tag">MQTT</span>
+            <span class="project-tech-tag">C++</span>
+          </div>
+          <a href="https://github.com/shashank879/IoT" class="project-card__link">
+            View on GitHub
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal" style="--stagger-index:1">
+          <div class="project-card__header">
+            <span class="project-card__type">Robotics</span>
+            <span class="project-card__year">2023</span>
+          </div>
+          <h3 class="project-card__title">Autonomous Obstacle Navigation</h3>
+          <p class="project-card__desc">
+            Autonomous navigation of a ROSBot through obstacle fields using local laser sensing.
+          </p>
+          <div class="project-card__tech">
+            <span class="project-tech-tag">ROS2</span>
+            <span class="project-tech-tag">Python</span>
+          </div>
+          <a href="https://github.com/your-repo" class="project-card__link">
+            View on GitHub
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Project 3 -->
+        <!-- <div class="project-card reveal" style="--stagger-index:2">
+          <div class="project-card__header">
+            <span class="project-card__type">Application</span>
+            <span class="project-card__year">2022</span>
+          </div>
+          <h3 class="project-card__title">Third Project</h3>
+          <p class="project-card__desc">
+            Keep the pattern consistent. Each card should stand on its own
+            while contributing to a broader narrative of capability.
+          </p>
+          <div class="project-card__tech">
+            <span class="project-tech-tag">Framework</span>
+            <span class="project-tech-tag">Language</span>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       EXPERIENCE
+       ==================================================================== -->
+  <section class="section section--alt" id="experience">
+    <div class="section__inner">
+      <div class="section__header reveal">
+        <span class="section__label">06 — Experience</span>
+        <h2 class="section__title">Journey</h2>
+        <!-- <p class="section__subtitle">
+          The path that shaped how you think — from first lines of code to current research.
+        </p> -->
+      </div>
+
+      <div class="timeline reveal-stagger">
+        <!-- Current -->
+        <div class="timeline__item timeline__item--current reveal" style="--stagger-index:0">
+          <span class="timeline__period">2021 – Present</span>
+          <h3 class="timeline__role">PhD</h3>
+          <div class="timeline__org">University of Bath</div>
+          <p class="timeline__desc">
+            Autonomous skill acquisition and long-horizon planning for hierarchical RL agents, and self exploration. Supervised by Dr. Vinay Namboodiri and Dr. Janina Hoffmann. Published at NeurIPS workshops (2023, 2025) with one paper under review.
+          </p>
+        </div>
+
+        <!-- Past 1 -->
+        <div class="timeline__item reveal" style="--stagger-index:1">
+          <span class="timeline__period">2020 – 2022</span>
+          <h3 class="timeline__role">Pre-Doc Researcher (L4 Research Scientist)</h3>
+          <div class="timeline__org">Google</div>
+          <p class="timeline__desc">
+            Computer vision for satellite imagery. Developed a semi-supervised pipeline achieving baseline performance with 99% less labeled data. Deployed models to Google's EarthStacker landscape mapping system. Led codebase development for a 7-person research team across multi-GPU/TPU clusters.
+          </p>
+        </div>
+
+        <!-- Past 2 -->
+        <div class="timeline__item reveal" style="--stagger-index:2">
+          <span class="timeline__period">2017 – 2019</span>
+          <h3 class="timeline__role">AI Researcher</h3>
+          <div class="timeline__org">Active.ai</div>
+          <p class="timeline__desc">
+            Conversational AI for financial services — machine comprehension, abstractive summarization, and multi-turn dialogue. Ranked 10th worldwide on Stanford SQuAD v1.1 and 14th on v2.0. Co-authored two patents on conversational dialogue systems.
+          </p>
+        </div>
+
+        <!-- Past 3 -->
+        <div class="timeline__item reveal" style="--stagger-index:3">
+          <span class="timeline__period">2016 – 2017</span>
+          <h3 class="timeline__role">Research Engineer</h3>
+          <div class="timeline__org">Active.ai</div>
+          <p class="timeline__desc">
+            Research on generative adversarial networks with Dr. Vinay Namboodiri. Work on addressing mode collapse resulted in an oral presentation at AAAI 2018. Awarded Google Travel & Conference Grant.
+          </p>
+        </div>
+
+        <!-- Past 4 -->
+        <div class="timeline__item reveal" style="--stagger-index:4">
+          <span class="timeline__period">2013 – 2016</span>
+          <h3 class="timeline__role">Senior Software Engineer & Co-founder</h3>
+          <div class="timeline__org">YMediaLabs · SRVS · Spocket</div>
+          <p class="timeline__desc">
+            Research on generative adversarial networks with Dr. Vinay Namboodiri. Work on addressing mode collapse resulted in an oral presentation at AAAI 2018. Awarded Google Travel & Conference Grant.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="timeline__item reveal" style="--stagger-index:5">
+          <span class="timeline__period">2009 – 2013</span>
+          <h3 class="timeline__role">B.Tech, Mechanical Engineering</h3>
+          <div class="timeline__org">IIT Kanpur</div>
+          <!-- <p class="timeline__desc">
+            Relevant coursework, thesis topic, or formative experiences.
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       CONTACT / FOOTER
+       ==================================================================== -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <div class="reveal">
+        <h2 class="footer__heading">Let's Connect</h2>
+        <p class="footer__text">
+          Open to research collaborations, industry positions, and conversations
+          about interesting problems. Don't hesitate to reach out.
+        </p>
+        <!-- <a href="mailto:shashank.879@gmail.com" class="footer__email">shashank.879@gmail.com</a> -->
+      </div>
+
+      <div class="footer__divider"></div>
+      <p class="footer__copy">&copy; 2026 Shashank Sharma.</p>
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       SCRIPTS
+       ==================================================================== -->
+  <script>
+    /* ── Navigation scroll state ── */
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      // nav.classList.toggle('scrolled', window.scrollY > 40);
+      const heroBottom = document.getElementById('hero').offsetHeight - 100;
+      nav.classList.toggle('scrolled', window.scrollY > heroBottom);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Mobile nav toggle ── */
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // Close menu on link click
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── Scroll-triggered reveal ── */
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      revealObserver.observe(el);
+    });
+
+    /* ── Active nav link tracking ── */
+    const sections = document.querySelectorAll('section[id], footer[id]');
+    const navLinks = document.querySelectorAll('.nav__links a');
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.style.color = link.getAttribute('href') === `#${id}`
+                ? 'var(--color-accent)'
+                : '';
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sections.forEach(section => sectionObserver.observe(section));
+  </script>
+
 </body>
 </html>
